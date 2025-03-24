@@ -1,0 +1,114 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** cursor_project_rules
+*   **Description:** RISE is an AI-powered data analytics platform tailored for startups, investors, and executives in the Saudi market. It converts raw business data into actionable insights, enabling users to drive business growth and seize new opportunities. The platform offers real-time dashboards, AI-driven recommendations, investor matching algorithms, and secure data handling compliant with local regulations.
+*   **Primary Goal:** Deliver a secure, real-time, AI-powered analytics solution that transforms raw data into actionable insights for informed decision making, ensuring compliance with PDPL and supporting seamless integration of third-party services.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+
+    *   **Next js 14 (App Router):** Enforce usage of the `app/` folder with nested route folders. For example, route pages follow the `app/[route]/page.tsx` convention.
+    *   Example 1: "Next.js 14 (App Router)" → `app/[route]/page.tsx` conventions
+    *   Example 2: "Next.js (Pages Router)" → `pages/[route].tsx` pattern
+    *   Example 3: "React Router 6" → `src/routes/` with `createBrowserRouter`
+
+### Core Directories
+
+*   **Versioned Structure:**
+
+    *   **app:** Contains main routing, API endpoints, global layouts, and core pages following Next.js 14 structure (e.g., `app/api`, `app/globals.css`, `app/layout.tsx`, `app/page.tsx`).
+    *   **components:** Houses reusable UI components including Shadcn UI elements and provider wrappers for Clerk and Tanstack clients.
+    *   **hooks:** Contains custom React hooks for enhanced functionality (e.g., mobile responsiveness, toast notifications).
+    *   **lib, types, utils:** Serve versioned purposes such as utility functions, type definitions, and integration helpers (e.g., for Supabase and OpenAI).
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+
+    *   **app/layout.tsx:** Implements the root layout for Next.js 14 using the App Router.
+    *   **app/api/webhooks/route.ts:** Demonstrates API route handling in Next.js 14 with route handlers.
+    *   **components/providers/clerk-client-provider.tsx:** Sets up authentication providers following Clerk Auth best practices.
+
+## Tech Stack Rules
+
+*   **Version Enforcement:**
+
+    *   **next@14:** Must use the App Router in the `app/` directory. Avoid mixing files from a Pages Router structure.
+    *   **Tailwind CSS:** Utilize utility-first CSS practices with responsive design in mind.
+    *   **Typescript:** Enforce strict typing and type-safety across all components and utility functions.
+    *   **Supabase:** Use for backend database management, authentication, and file storage; ensure encryption for data at rest and in transit.
+    *   **Shadcn UI:** Implement design consistency and component-driven development per project branding standards.
+    *   **Clerk Auth:** Integrate secure, streamlined user authentication mechanisms.
+    *   **Open AI:** Follow secure API integration practices and monitor rate limits.
+
+## PRD Compliance
+
+*   **Non-Negotiable:**
+
+    *   "The platform converts raw business data into actionable insights, allowing users to monitor performance metrics, identify growth obstacles, and prepare investor-ready reports." This mandates real-time dashboards, AI-driven analytics, robust security measures (including encryption and compliance with PDPL), and seamless integration of data import/export features.
+
+## App Flow Integration
+
+*   **Stack-Aligned Flow:**
+
+    *   Example: "Next.js 14 Auth Flow → `app/auth/login/page.tsx` uses server actions to manage OAuth registration with Google and LinkedIn, ensuring a secure and responsive onboarding experience".
+
+## Best Practices
+
+*   **Next js**
+
+    *   Leverage the App Router for modular and nested routes.
+    *   Utilize server components for optimized performance and data fetching.
+    *   Maintain code-splitting and lazy loading of components where possible.
+
+*   **Tailwind CSS**
+
+    *   Adhere to utility-first principles to ensure a consistent and responsive design.
+    *   Configure Tailwind’s purge options to eliminate unused CSS in production.
+    *   Use design tokens that mirror the platform’s branding (gradient colors: #00002e, #00bfe6, #b04af6).
+
+*   **Typescript**
+
+    *   Enforce strict typing and linting rules for maintainability.
+    *   Integrate comprehensive type definitions for API responses.
+    *   Utilize interfaces and type aliases to manage component props and state.
+
+*   **Supabase**
+
+    *   Secure endpoints by using Supabase Auth and proper role-based access controls.
+    *   Ensure data encryption both at rest and in transit.
+    *   Use Supabase’s real-time capabilities for live dashboards and data processing.
+
+*   **Shadcn UI**
+
+    *   Maintain design consistency by reusing pre-built components across the project.
+    *   Customize components to align with the branding guidelines.
+    *   Implement accessibility best practices for all interactive elements.
+
+*   **Clerk Auth**
+
+    *   Integrate authentication with minimal configuration conflicts.
+    *   Leverage Clerk’s session management for secure user handling.
+    *   Ensure proper error handling and fallback mechanisms during authentication flows.
+
+*   **Open AI**
+
+    *   Secure API keys and monitor usage to stay within rate limits.
+    *   Implement robust error handling for AI-driven components.
+    *   Keep response times optimal by caching frequent queries where possible.
+
+## Rules
+
+*   Derive folder/file patterns **directly** from tech stack documentation and starter kit structure.
+*   If Next.js 14 App Router is used: Enforce the use of the `app/` directory with nested route folders.
+*   If Pages Router is used: Utilize a flat structure with `pages/*.tsx` conventions, but this must not be mixed with App Router patterns.
+*   Mirror similar routing and folder logic for React Router, SvelteKit, etc., as relevant by project requirements.
+*   Never mix version patterns (e.g., no `pages/` in an App Router based project).
