@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #00bfe6;
+  --secondary-color: #b04af6;
+  --dark-color: #00002e;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#00002e] via-[#00bfe6] to-[#b04af6] text-transparent bg-clip-text;
+  }
+  
+  .bg-gradient {
+    @apply bg-gradient-to-r from-[#00002e] via-[#00bfe6] to-[#b04af6];
+  }
+} 
