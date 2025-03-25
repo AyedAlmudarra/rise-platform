@@ -10,11 +10,9 @@ export const metadata = {
   description: 'RISE transforms raw business data into actionable insights, enabling startups to grow and investors to make informed decisions.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const RootLayout: React.FC<{
+  readonly children: React.ReactNode;
+}> = ({ children }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -24,4 +22,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-} 
+}
+
+export default RootLayout; 

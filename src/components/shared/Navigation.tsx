@@ -113,19 +113,13 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
   const getNavigationItems = (): NavigationItem[] => {
     if (!user) return [];
 
-    // For development purposes, using common navigation for all users
-    // When ready to switch to role-based navigation, uncomment below and remove the return statement
-    return getCommonNavigation();
-    
-    // Role-based navigation can be enabled by uncommenting below
-    /*
+    // Enable role-based navigation
     switch (user.role) {
       case 'startup': return getStartupNavigation();
       case 'investor': return getInvestorNavigation();
       case 'admin': return getAdminNavigation();
-      default: return [];
+      default: return getCommonNavigation();
     }
-    */
   };
 
   const navigationItems = getNavigationItems();
@@ -202,11 +196,11 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#00002e] via-[#00bfe6] to-[#b04af6] flex items-center justify-center text-white font-medium">
-                {user?.email?.charAt(0).toUpperCase() || 'U'}
+                {user?.email?.charAt(0).toUpperCase() ?? 'U'}
               </div>
             </div>
             <div className="ml-3">
-              <p className="text-sm font-medium text-gray-900">{user?.email || 'User'}</p>
+              <p className="text-sm font-medium text-gray-900">{user?.email ?? 'User'}</p>
               <button
                 onClick={handleSignOut}
                 className="text-xs text-gray-500 hover:text-gray-900"
